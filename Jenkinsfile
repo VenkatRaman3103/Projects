@@ -9,12 +9,14 @@ pipeline {
 
     stage('Clone Repository and Navigate to Craft') {
       steps {
-        withCredentials([string(credentialsId: 'github-pat', variable: 'GITHUB_TOKEN')]) {
+        withCredentials(bindings: [string(credentialsId: 'github-pat', variable: 'GITHUB_TOKEN')]) {
           git(url: 'https://VenkatRaman3103:${GITHUB_TOKEN}@github.com/VenkatRaman3103/Projects.git', branch: 'main')
-          dir('craft') {
+          dir(path: 'craft') {
             sh 'echo Inside Craft project'
           }
+
         }
+
       }
     }
 
