@@ -1,8 +1,14 @@
+import BackendPage from 'pages/BackendPage';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 
 function App() {
   return (
-    <h1>Hello world</h1>
+    <Router>
+      <Routes>
+        <Route path='/backend-page' element={<BackendPage />} />
+      </Routes>
+    </Router>
   );
 }
 
